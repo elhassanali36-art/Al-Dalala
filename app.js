@@ -41,9 +41,16 @@
     }).join('');
   }
 
+  function priceNum(c) {
+    var v = parseFloat(String(c.price || '').replace(/[^0-9.]/g, ''));
+    if (isNaN(v)) return 0;
+    if (String(c.priceUnit || '').indexOf('ألف') !== -1) return v / 1000;
+    return v;
+  }
+
   function filtered() {
     var q = ($('#search').value || '').trim().toLowerCase();
-    return cars.filter(function (c) {
+    return cars.slice().sort(function (a, b) { return priceNum(b) - priceNum(a); }).filter(function (c) {
       var inCat = activeCategory === 'الكل' || c.category === activeCategory;
       if (!inCat) return false;
       if (!q) return true;
