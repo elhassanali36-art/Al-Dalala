@@ -1,5 +1,5 @@
 /* الدلالة — يعمل بسرعة ويحفظ آخر نسخة من العروض للعرض بدون إنترنت */
-var CACHE = 'dalala-v5';
+var CACHE = 'dalala-v6';
 var CORE = ['./', './index.html', './manifest.webmanifest', './img/icon-192.png', './img/icon-512.png', './img/placeholder.svg'];
 
 self.addEventListener('install', function (e) {
