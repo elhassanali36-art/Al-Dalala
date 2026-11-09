@@ -120,7 +120,7 @@
     $('#mPriceNote').textContent = c.priceNote || '';
     $('#mCommission').textContent = 'العمولة: ' + (c.commission || '—') + (c.commissionNote ? ' — ' + c.commissionNote : '');
     $('#mSpecs').innerHTML = (c.specs || []).map(function (s) { return '<li>' + esc(s) + '</li>'; }).join('');
-    $('#mPlace').innerHTML = '📍 مكان المعاينة: <strong style="color:#e8eef5;margin-inline-start:5px">' + esc(c.place || 'الخرطوم') + '</strong>';
+    $('#mPlace').innerHTML = '📍 مكان المعاينة: <strong style="color:#14171c;margin-inline-start:5px">' + esc(c.place || 'الخرطوم') + '</strong>';
     $('#mWa').href = waLink('مرحبا، أستفسر عن ' + c.title + ' — السعر ' + c.price + ' ' + (c.priceUnit || '') + '، المعاينة ' + (c.place || '') + '. هل السيارة متاحة؟');
     $('#mCall').href = 'tel:' + (settings.phone || '');
     $('#carModal').classList.add('show');
