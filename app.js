@@ -44,7 +44,9 @@
   function priceNum(c) {
     var v = parseFloat(String(c.price || '').replace(/[^0-9.]/g, ''));
     if (isNaN(v)) return 0;
-    if (String(c.priceUnit || '').indexOf('ألف') !== -1) return v / 1000;
+    var unit = String(c.priceUnit || '');
+    if (unit.indexOf('مليار') !== -1) return v * 1000;
+    if (unit.indexOf('ألف') !== -1) return v / 1000;
     return v;
   }
 
