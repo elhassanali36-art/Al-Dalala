@@ -1,5 +1,5 @@
 /* الدلالة — يعمل بسرعة ويحفظ آخر نسخة من العروض للعرض بدون إنترنت */
-var CACHE = 'dalala-v3';
+var CACHE = 'dalala-v4';
 var CORE = ['./', './index.html', './manifest.webmanifest', './img/icon-192.png', './img/icon-512.png', './img/placeholder.svg'];
 
 self.addEventListener('install', function (e) {
@@ -25,7 +25,7 @@ self.addEventListener('fetch', function (e) {
   if (req.mode === 'navigate' || isFresh(url)) {
     /* العروض والأسعار: نجيبها من الشبكة دائماً، ونستخدم الكاش فقط عند انقطاع الإنترنت */
     e.respondWith(
-      fetch(req).then(function (res) {
+      fetch(req, { cache: 'no-store' }).then(function (res) {
         var copy = res.clone();
         caches.open(CACHE).then(function (c) { c.put(req, copy); });
         return res;
